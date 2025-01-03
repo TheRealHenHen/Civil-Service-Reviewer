@@ -1,0 +1,191 @@
+/* General Reset */
+body, h1, h2, h3, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+/* Add these CSS variables at the top, after the General Reset */
+:root {
+    --bg-color: #f9f9f9;
+    --title-text-color: black;
+    --text-color: #333333;
+    --line-height: 1.6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+
+    --button-main-color: #0078ff;
+    --button-main-hover-color: #0056b3;
+    --button-secondary-color: transparent;
+    --button-secondary-hover-color: #333333;
+    --button-text-main-color: #f9f9f9;
+    --button-text-secondary-color: #333333;
+
+    --footer-bg-color: #222222; 
+    --footer-text-color: #f9f9f9;
+}
+
+[data-theme="dark"] {
+    --bg-color: #030306;
+    --text-color: #ffffff;
+}
+
+/* Body and Typography */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    line-height: var(--line-height);
+    text-align: center;
+    transition: 0.3s;
+}
+
+header {
+    background-image: url('../assets/img/home_background_light.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 3rem;
+    min-height: 50vh;
+    border-radius: 15px;
+    margin: 20px;
+    box-shadow: 0px 4px 10px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header .title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.hero {
+    text-align: center;
+    margin: auto;
+    transition: opacity var(--transition-speed);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    color: var(--title-text-color);
+}
+
+.hero p {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+}
+
+/* WHEN "TRY FOR FREE" IS PRESSED */
+
+.subjects-div {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-speed),
+                transform var(--transition-speed);
+}
+
+.subjects-div.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.btn-main {
+    background: var(--button-main-color);
+    border-radius: 10px;
+    color: var(--button-text-main-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.3rem;
+    transition: 0.2s;
+}
+
+.btn-secondary {
+    background: var(--button-secondary-color);
+    border-radius: 10px;
+    color: var(--button-text-secondary-color);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1.1rem;
+    border: 2px solid var(--button-text-secondary-color);
+    transition: 0.2s;
+}
+
+/* Button hover states */
+.btn-main:hover {
+    background: var(--button-main-hover-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: var(--button-secondary-hover-color);
+    color: var(--button-text-main-color);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Special case for dark mode toggle */
+#darkModeToggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+#darkModeToggle:hover {
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+}
+
+.features, .testimonials {
+    padding: 2rem 1rem; /* TODO */
+}
+
+.features .feature {
+    margin: 1rem 0; /* TODO */
+}
+
+footer {
+    background: var(--footer-bg-color);
+    color: var(--footer-text-color);
+    padding: 2rem 1rem;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#darkModeToggle {
+    padding: 0.5rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+    font-size: 1.2rem;
+    transition: all 0.2s;
+}

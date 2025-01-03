@@ -49,3 +49,49 @@ function initDarkMode() {
 
 // Initialize dark mode
 initDarkMode();
+
+// Add this new function
+function initTryForFree() {
+    const tryForFreeBtn = document.getElementById('tryFreeBtn');
+    const hero = document.querySelector('.hero');
+    const originalContent = hero.innerHTML;
+    
+    tryForFreeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        
+        // Fade out
+        hero.style.opacity = '0';
+        
+        setTimeout(() => {
+            hero.innerHTML = `
+                <h1>Select a Subject</h1>
+                <div class="subjects-div">
+                    <a href="subject_topics.html?subject=math" id="mathBtn" class="subject-btn btn-main">Math</a>
+                    <a href="subject_topics.html?subject=english" id="englishBtn" class="subject-btn btn-main">English</a>
+                </div>
+                <button id="backBtn" class="btn-secondary">Back</button>
+            `;
+            
+            // Fade in
+            hero.style.opacity = '1';
+            
+            const subjectsDiv = hero.querySelector('.subjects-div');
+            setTimeout(() => {
+                subjectsDiv.classList.add('show');
+            }, 50);
+
+            const backBtn = document.getElementById('backBtn');
+            backBtn.addEventListener('click', () => {
+                hero.style.opacity = '0';
+                setTimeout(() => {
+                    hero.innerHTML = originalContent;
+                    hero.style.opacity = '1';
+                    initTryForFree();
+                }, 300);
+            });
+        }, 300);
+    });
+}
+
+// Add this line at the bottom of the file
+initTryForFree();
